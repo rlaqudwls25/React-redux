@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductList from "./Pages/ProductList";
+import Nav from "./Components/Nav";
 
 const Routes = () => {
   const [cartItems, setCartItems] = useState(CART_ITEM);
@@ -10,6 +11,7 @@ const Routes = () => {
   };
   return (
     <Router>
+      <Nav itemCount={cartItems.length} />
       <Switch>
         <Route
           exact

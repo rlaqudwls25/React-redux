@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { mixin } from "../Styles/mixin";
+import CartNotice from "./CartNotice";
 
-const Nav = () => {
+const Nav = ({ itemCount }) => {
+  const history = useHistory();
   return (
     <NavContainer>
       <NavWrapper>
-        <NavTitle></NavTitle>
+        <NavTitle onClick={() => history.push("/")}>Market</NavTitle>
+        <CartNotice itemCount={itemCount} width="32" height="32" />
       </NavWrapper>
     </NavContainer>
   );
@@ -26,11 +29,12 @@ const NavContainer = styled.div`
 `;
 
 const NavWrapper = styled.div`
-  ${mixin.flexSet("_", "space-between", "center")};
+  ${mixin.flexSet("space-between", "center")};
   width: 1096px;
   margin: 0 auto;
 `;
 
 const NavTitle = styled.span`
   ${mixin.fontSet("#fffef8", "28px", "900")};
+  cursor: pointer;
 `;
