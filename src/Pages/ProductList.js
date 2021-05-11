@@ -3,14 +3,20 @@ import styled from "styled-components";
 import ProductCard from "../Components/ProductCard";
 import { mixin } from "../Styles/mixin";
 
-const ProductList = () => {
+const ProductList = ({ addToCart }) => {
   return (
     <ListWrapper>
       <Title>상품목록</Title>
       <Line />
       <CardContainer>
         {CART_ITEM.map((item, idx) => {
-          return <ProductCard key={idx} item={item} />;
+          return (
+            <ProductCard
+              key={idx}
+              item={item}
+              addToCart={() => addToCart(item)}
+            />
+          );
         })}
       </CardContainer>
     </ListWrapper>
