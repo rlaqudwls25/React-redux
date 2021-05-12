@@ -10,6 +10,17 @@ const Routes = () => {
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
+
+  const filterItem = (idx) => {
+    setCartItems(
+      cartItems.filter((_, i) => {
+        return i !== idx;
+      })
+    );
+  };
+
+  console.log(filterItem);
+
   return (
     <Router>
       <Nav itemCount={cartItems.length} />
@@ -22,7 +33,9 @@ const Routes = () => {
         <Route
           exact
           path="/cart"
-          component={() => <CartList cartItems={cartItems} />}
+          component={() => (
+            <CartList cartItems={cartItems} filterItem={filterItem} />
+          )}
         />
       </Switch>
     </Router>

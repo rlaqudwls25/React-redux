@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
 import CartItem from "../Components/CartItem";
+import CheckBox from "../Components/CheckBox";
 
-const CartList = ({ cartItems }) => {
+const CartList = ({ cartItems, filterItem }) => {
   return (
     <ListContainer>
       <Title>장바구니</Title>
@@ -28,7 +29,9 @@ const CartList = ({ cartItems }) => {
             <td />
           </CartHeader>
           {cartItems.map((item, idx) => {
-            return <CartItem {...item} key={idx} />;
+            return (
+              <CartItem {...item} key={idx} idx={idx} filterItem={filterItem} />
+            );
           })}
         </tbody>
       </CartTable>

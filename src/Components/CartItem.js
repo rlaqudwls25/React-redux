@@ -1,18 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-// import { mixin } from "../Styles/mixin";
+import CheckBox from "./CheckBox";
+import { mixin } from "../Styles/mixin";
 
 const CartItem = ({
   isChecked,
   product_name,
-  product_id,
   product_img,
   price,
   idx,
+  filterItem,
 }) => {
   return (
     <Item>
-      <CheckColumn></CheckColumn>
+      <CheckColumn>
+        <CheckBox isChecked={isChecked} />
+      </CheckColumn>
       <ImgColumn>
         <Img src={product_img} />
       </ImgColumn>
@@ -22,7 +25,11 @@ const CartItem = ({
       </ProductInfo>
       <td>1</td>
       <td>{price}원</td>
-      <DeleteCircle></DeleteCircle>
+      <td>
+        <DeleteCircle onClick={() => filterItem(idx)}>
+          <DeleteIcon />
+        </DeleteCircle>
+      </td>
     </Item>
   );
 };
@@ -74,11 +81,15 @@ const ProductInfo = styled.td`
 `;
 
 const DeleteCircle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${mixin.flexSet("center", "center")}
   width: 42px;
   height: 42px;
   border: 1px solid #e1e1e1;
   border-radius: 50%;
+`;
+
+const DeleteIcon = styled.div`
+  width: 15px;
+  height: 20px;
+  background-image: url("/images/deleteIcon.png");
 `;
