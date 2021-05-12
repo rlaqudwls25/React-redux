@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { mixin } from "../Styles/mixin";
+import CartIcon from "./CartIcon";
 
 const CartNotice = ({ itemCount }) => {
   const history = useHistory();
@@ -11,6 +12,7 @@ const CartNotice = ({ itemCount }) => {
       <ItemCount>
         <span>{itemCount}</span>
       </ItemCount>
+      <CartIcon width="32" height="32" />
     </Icon>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
+import CartIcon from "./CartIcon";
 
 const ProductCard = ({ item, addToCart }) => {
   console.log(addToCart);
@@ -10,6 +11,7 @@ const ProductCard = ({ item, addToCart }) => {
       <Title>{item.product_name}</Title>
       <Price>{item.price}원</Price>
       <AddCartBtn onClick={() => addToCart()}>
+        <CartIcon width="16" height="16" />
         <span>장바구니 담기</span>
       </AddCartBtn>
     </Card>
