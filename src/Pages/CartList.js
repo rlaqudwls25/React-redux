@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
+import CartItem from "../Components/CartItem";
 
-const CartList = () => {
+const CartList = ({ cartItems }) => {
   return (
     <ListContainer>
       <Title>장바구니</Title>
       <CartTable>
         <tbody>
           <CartHeader>
+            <td>
+              <CheckBox />
+            </td>
             <td>
               <span>전체 선택</span>
             </td>
@@ -21,7 +25,11 @@ const CartList = () => {
             <td>
               <span>상품금액</span>
             </td>
+            <td />
           </CartHeader>
+          {cartItems.map((item, idx) => {
+            return <CartItem {...item} key={idx} />;
+          })}
         </tbody>
       </CartTable>
     </ListContainer>

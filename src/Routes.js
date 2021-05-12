@@ -19,7 +19,11 @@ const Routes = () => {
           path="/"
           component={() => <ProductList addToCart={addToCart} />}
         />
-        <Route exact path="/cart" component={CartList} />
+        <Route
+          exact
+          path="/cart"
+          component={() => <CartList cartItems={cartItems} />}
+        />
       </Switch>
     </Router>
   );
