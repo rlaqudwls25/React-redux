@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductList from "./Pages/ProductList";
 import Nav from "./Components/Nav";
+import CartList from "./Pages/CartList";
 
 const Routes = () => {
   const [cartItems, setCartItems] = useState(CART_ITEM);
@@ -18,6 +19,7 @@ const Routes = () => {
           path="/"
           component={() => <ProductList addToCart={addToCart} />}
         />
+        <Route exact path="/cart" component={CartList} />
       </Switch>
     </Router>
   );
