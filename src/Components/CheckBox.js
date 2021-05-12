@@ -18,7 +18,6 @@ const Label = styled.label`
   ${mixin.flexSet("center", "center")};
   width: 26px;
   height: 26px;
-
   background: ${({ isChecked }) => (isChecked ? "#e82c23" : "gray")};
   border-radius: 2px;
 `;

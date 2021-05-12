@@ -4,7 +4,6 @@ import { mixin } from "../Styles/mixin";
 import CartIcon from "./CartIcon";
 
 const ProductCard = ({ item, addToCart }) => {
-  console.log(addToCart);
   return (
     <Card>
       <Img src={item.product_img} />

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProductCard from "../Components/ProductCard";
 import { mixin } from "../Styles/mixin";
 
 const ProductList = ({ addToCart }) => {
+  useEffect(() => {
+    console.log("ProductList render");
+  });
   return (
     <ListWrapper>
       <Title>상품목록</Title>

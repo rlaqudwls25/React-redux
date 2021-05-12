@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
 import CartItem from "../Components/CartItem";
 import CheckBox from "../Components/CheckBox";
 
 const CartList = ({ cartItems, filterItem }) => {
+  useEffect(() => {
+    console.log("CartList render");
+  });
   return (
     <ListContainer>
       <Title>장바구니</Title>

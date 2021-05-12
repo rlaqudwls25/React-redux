@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { mixin } from "../Styles/mixin";
@@ -6,6 +6,9 @@ import CartNotice from "./CartNotice";
 
 const Nav = ({ itemCount }) => {
   const history = useHistory();
+  useEffect(() => {
+    console.log("Nav");
+  });
   return (
     <NavContainer>
       <NavWrapper>
