@@ -33,7 +33,12 @@ const CartList = ({ cartItems, filterItem }) => {
           </CartHeader>
           {cartItems.map((item, idx) => {
             return (
-              <CartItem {...item} key={idx} idx={idx} filterItem={filterItem} />
+              <CartItem
+                {...item}
+                key={item.id}
+                idx={idx}
+                filterItem={filterItem}
+              />
             );
           })}
         </tbody>
