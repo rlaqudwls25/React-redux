@@ -1,13 +1,13 @@
 export const addCart = (item) => {
   return {
-    type: "ADD",
+    type: "ADD_ITEM",
     payload: item,
   };
 };
 
 export const deleteCart = (items) => {
   return {
-    type: "DELETE",
+    type: "DELETE_ITEM",
     payload: items,
   };
 };
