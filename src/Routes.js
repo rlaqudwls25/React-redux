@@ -9,6 +9,7 @@ const Routes = () => {
   const [cartItems, setCartItems] = useState(CART_ITEM);
 
   const addToCart = (item) => {
+    alert("물품이 추가되었습니다.");
     setCartItems([...cartItems, item]);
   };
 
