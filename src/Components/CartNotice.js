@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { mixin } from "../Styles/mixin";
 import CartIcon from "./CartIcon";
 
-const CartNotice = ({ itemCount }) => {
+const CartNotice = () => {
   const history = useHistory();
-
+  const items = useSelector((store) => store.cartReducer);
   return (
     <Icon onClick={() => history.push("/cart")}>
       <ItemCount>
-        <span>{itemCount}</span>
+        <span>{items.length}</span>
       </ItemCount>
       <CartIcon width="32" height="32" />
     </Icon>

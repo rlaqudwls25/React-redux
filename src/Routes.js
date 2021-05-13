@@ -8,11 +8,6 @@ import { CART_ITEM } from "./Data/CartData";
 const Routes = () => {
   const [cartItems, setCartItems] = useState(CART_ITEM);
 
-  const addToCart = (item) => {
-    alert("물품이 추가되었습니다.");
-    setCartItems([...cartItems, item]);
-  };
-
   const filterItem = (idx) => {
     setCartItems(
       cartItems.filter((_, i) => {
@@ -29,11 +24,7 @@ const Routes = () => {
     <Router>
       <Nav itemCount={cartItems.length} />
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => <ProductList addToCart={addToCart} />}
-        />
+        <Route exact path="/" component={() => <ProductList />} />
         <Route
           exact
           path="/cart"

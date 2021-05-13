@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
+import { useDispatch } from "react-redux";
 import CartIcon from "./CartIcon";
+import { addCart } from "../store/actions";
 
-const ProductCard = ({ item, addToCart }) => {
+const ProductCard = ({ item }) => {
+  const dispatch = useDispatch();
+
   return (
     <Card>
       <Img src={item.product_img} />
       <Title>{item.product_name}</Title>
       <Price>{item.price}원</Price>
-      <AddCartBtn onClick={() => addToCart()}>
+      <AddCartBtn onClick={() => dispatch(addCart(item))}>
         <CartIcon width="16" height="16" />
         <span>장바구니 담기</span>
       </AddCartBtn>

@@ -4,7 +4,7 @@ import ProductCard from "../Components/ProductCard";
 import { CART_ITEM } from "../Data/CartData";
 import { mixin } from "../Styles/mixin";
 
-const ProductList = ({ addToCart }) => {
+const ProductList = () => {
   useEffect(() => {
     console.log("ProductList render");
   });
@@ -14,13 +14,7 @@ const ProductList = ({ addToCart }) => {
       <Line />
       <CardContainer>
         {CART_ITEM.map((item) => {
-          return (
-            <ProductCard
-              key={item.id}
-              item={item}
-              addToCart={() => addToCart(item)}
-            />
-          );
+          return <ProductCard key={item.id} item={item} />;
         })}
       </CardContainer>
     </ListWrapper>
