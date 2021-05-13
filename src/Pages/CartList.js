@@ -3,11 +3,15 @@ import styled from "styled-components";
 import { mixin } from "../Styles/mixin";
 import CartItem from "../Components/CartItem";
 import CheckBox from "../Components/CheckBox";
+import { useSelector } from "react-redux";
 
-const CartList = ({ cartItems, filterItem }) => {
+const CartList = () => {
   useEffect(() => {
     console.log("CartList render");
   });
+
+  const cartItems = useSelector((store) => store.cartReducer);
+
   return (
     <ListContainer>
       <Title>장바구니</Title>
@@ -32,14 +36,7 @@ const CartList = ({ cartItems, filterItem }) => {
             <td />
           </CartHeader>
           {cartItems.map((item, idx) => {
-            return (
-              <CartItem
-                {...item}
-                key={item.id}
-                idx={idx}
-                filterItem={filterItem}
-              />
-            );
+            return <CartItem {...item} key={item.id + idx} idx={idx} />;
           })}
         </tbody>
       </CartTable>

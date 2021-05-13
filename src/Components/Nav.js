@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { mixin } from "../Styles/mixin";
 import CartNotice from "./CartNotice";
 
-const Nav = ({ itemCount }) => {
+const Nav = () => {
   const history = useHistory();
   useEffect(() => {
     console.log("Nav");
@@ -13,7 +13,7 @@ const Nav = ({ itemCount }) => {
     <NavContainer>
       <NavWrapper>
         <NavTitle onClick={() => history.push("/")}>Market</NavTitle>
-        <CartNotice itemCount={itemCount} width="32" height="32" />
+        <CartNotice width="32" height="32" />
       </NavWrapper>
     </NavContainer>
   );

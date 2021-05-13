@@ -2,15 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import CheckBox from "./CheckBox";
 import { mixin } from "../Styles/mixin";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCart } from "../store/actions";
 
-const CartItem = ({
-  isChecked,
-  product_name,
-  product_img,
-  price,
-  idx,
-  filterItem,
-}) => {
+const CartItem = ({ isChecked, product_name, product_img, price, idx }) => {
+  const cartItems = useSelector((store) => store.cartReducer);
+  const dispatch = useDispatch();
+
+  const filterItem = () => {
+    const items = cartItems.filter((_, i) => {
+      return i !== idx;
+    });
+    dispatch(deleteCart(items));
+  };
+
   return (
     <Item>
       <CheckColumn>
@@ -26,7 +31,7 @@ const CartItem = ({
       <td>1</td>
       <td>{price}원</td>
       <td>
-        <DeleteCircle onClick={() => filterItem(idx)}>
+        <DeleteCircle onClick={filterItem}>
           <DeleteIcon />
         </DeleteCircle>
       </td>

@@ -1,37 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductList from "./Pages/ProductList";
 import Nav from "./Components/Nav";
 import CartList from "./Pages/CartList";
-import { CART_ITEM } from "./Data/CartData";
 
 const Routes = () => {
-  const [cartItems, setCartItems] = useState(CART_ITEM);
-
-  const filterItem = (idx) => {
-    setCartItems(
-      cartItems.filter((_, i) => {
-        return i !== idx;
-      })
-    );
-  };
-
   useEffect(() => {
     console.log("Routes render");
   });
 
   return (
     <Router>
-      <Nav itemCount={cartItems.length} />
+      <Nav />
       <Switch>
         <Route exact path="/" component={() => <ProductList />} />
-        <Route
-          exact
-          path="/cart"
-          component={() => (
-            <CartList cartItems={cartItems} filterItem={filterItem} />
-          )}
-        />
+        <Route exact path="/cart" component={() => <CartList />} />
       </Switch>
     </Router>
   );
